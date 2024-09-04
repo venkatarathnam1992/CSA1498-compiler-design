@@ -1,0 +1,20 @@
+%{
+%}
+
+%%
+
+if|else|while|return|int|float|true|false {printf("\nIt is keyword\n");}
+[a-zA-Z][a-z A-Z 0-9]* {printf("\nIt is identifier\n");}
+
+.+ {printf("\nInvalid\n");}
+
+%%
+int yywrap(void){}
+
+int main()
+{
+ printf("\nEnter a keyword or identifier: ");
+ yylex();
+ printf("\n");
+ return 0;
+}
