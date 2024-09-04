@@ -1,0 +1,22 @@
+%{
+int vowels_count=0;
+int consonants_count=0;
+%}
+
+%%
+
+[aeiouAEIOU] {vowels_count++;}
+[a-z A-Z] {consonants_count++;}
+
+%%
+int yywrap(void){}
+
+int main()
+{
+ printf("\nEnter the string : ");
+ yylex();
+ printf("\n The vowels count is:%d",vowels_count);
+ printf("\n The consonants count is:%d",consonants_count);
+ printf("\n");
+ return 0;
+}
