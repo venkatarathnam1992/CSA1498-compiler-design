@@ -1,0 +1,55 @@
+addline:
+%{
+int  ln=0;
+%}
+
+%%
+.* {ln++; fprintf(yyout,"\n%d:%s",ln,yytext);}
+%%
+int yywrap(){}
+int main()
+{
+ yyin=fopen("addition.txt","r");
+ yyout=fopen("outnew.txt","w");
+ yylex();
+}
+
+addition:
+#include<stdio.h>
+int main()
+{
+int a,b,c;
+printf("enter a:\n");
+scanf("%d",&a);
+printf("enter b:\n");
+scanf("%d",&b);
+c=a+b;
+printf("%d",c);
+return 0;
+}
+
+output:
+
+1:#include<stdio.h>
+
+2:int main()
+
+3:{
+
+4:int a,b,c;
+
+5:printf("enter a:\n");
+
+6:scanf("%d",&a);
+
+7:printf("enter b:\n");
+
+8:scanf("%d",&b);
+
+9:c=a+b;
+
+10:printf("%d",c);
+
+11:return 0;
+
+12:}
